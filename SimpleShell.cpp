@@ -1,7 +1,7 @@
 /**
  * @file SimpleShell.cpp
  * @author Jay Bhatt (jay.bhatt98@gmail.com)
- * @brief Contains a simple shell program.
+ * @brief Simple shell program.
  * @version 1.0
  * @date 2024-01-03
  *
@@ -15,8 +15,7 @@
 #include <unistd.h>
 
 /**
- * @brief Defines the maximum number of characters allowed in a single shell
- *        line.
+ * @brief Maximum number of characters allowed in a single shell line.
  */
 #define MAXLINE 80
 
@@ -31,17 +30,17 @@ void convertInputToArgs(char *commandHolder, char **args)
    // Iterates through commandHolder until the null terminator is reached
    while (*commandHolder != '\0')
    {
-      // Continues until a non-space character is reached
+      // Skips the leading spaces
       while (*commandHolder == ' ')
       {
-         // Replaces spaces with null terminators
+         // Replaces each space with a null terminator
          *commandHolder++ = '\0';
       }
 
       // Saves the current argument
       *args++ = commandHolder;
 
-      // Continues until the end of the current argument is reached
+      // Moves to the end of the current argument
       while (!(*commandHolder == ' ' || *commandHolder == '\0'))
       {
          // Moves to the next character
@@ -54,7 +53,7 @@ void convertInputToArgs(char *commandHolder, char **args)
 }
 
 /**
- * @brief The main function of SimpleShell.cpp.
+ * @brief Main function of SimpleShell.cpp.
  *
  * @return int The exit code.
  */
@@ -83,13 +82,13 @@ int main(void)
       // Converts the user-inputted command to an array of arguments
       convertInputToArgs(commandHolder, args);
 
-      // Exits successfully if the user entered "exit" in the console
+      // Successfully exits if the user entered "exit" in the console
       if (strcmp(args[0], "exit") == 0)
       {
          exit(0);
       }
 
-      // Forks a child process and store its process ID
+      // Forks a child process and stores its process ID
       int childPid = fork();
 
       if (childPid < 0) /* fork() failed. */
@@ -111,8 +110,8 @@ int main(void)
       }
       else /* Parent process is waiting for the child process to finish. */
       {
-         // Determines if the parent process is waiting on the child process to
-         // finish
+         // Determines if the parent process is waiting for the child process
+         // to finish
          int waitingForChildProcess;
 
          // Suspends the calling process until the system gets status
@@ -123,6 +122,6 @@ int main(void)
       }
    }
 
-   // Exits successfully
+   // Successfully exits the program
    exit(0);
 }
