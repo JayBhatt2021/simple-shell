@@ -1,7 +1,7 @@
 # Simple Shell
 
-Simple Shell is a basic shell implementation in C++ that provides a simple command-line interface for executing UNIX
-commands in the terminal. The code is well-documented for clarity and ease of understanding.
+Simple Shell is a straightforward shell implementation in C++, providing a basic command-line interface for executing
+UNIX commands in the terminal. The code is well-documented to enhance clarity and ease of understanding.
 
 ## Installation
 
