@@ -20,7 +20,7 @@ $ cd simple-shell
 3. Compile the code:
 
 ```bash
-$ cd g++ -g -Wall -std=c++0x ./a.out SimpleShell.cpp
+$ g++ -g -Wall -std=c++0x ./a.out SimpleShell.cpp
 ```
 
 ## Usage
